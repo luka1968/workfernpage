@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Local Business Lead Extractor (No Login Required) | Workfern</title>
+    <meta name="description" content="Extract local business leads instantly using AI. Fast, accurate, and completely free to start. No login required. Upgrade for unlimited CSV exports.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Specific Styles for Tool UI and Layout */
+        .tool-ui-section {
+            padding: 60px 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+        .tool-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        .tool-header {
+            background: #1e293b;
+            padding: 20px 30px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .tool-input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+        .tool-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .tool-btn:hover { background: #059669; }
+        
+        .table-container { padding: 0; overflow-x: auto; position: relative; }
+        .tool-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .tool-table th { background: #f1f5f9; padding: 15px 20px; font-weight: 600; color: #475569; font-size: 14px; border-bottom: 2px solid #e2e8f0; }
+        .tool-table td { padding: 15px 20px; border-bottom: 1px solid #e2e8f0; color: #1e293b; font-size: 14px; }
+        .tool-table tr:hover { background: #f8fafc; }
+        
+        .loading-overlay {
+            display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.9); align-items: center; justify-content: center; flex-direction: column; gap: 15px;
+        }
+        .spinner {
+            width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #10b981; border-radius: 50%; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .paywall-message { display: none; background: #fffbeb; border-top: 1px solid #fde68a; padding: 30px; text-align: center; }
+        .paywall-message h4 { color: #d97706; margin-bottom: 10px; font-size: 18px; }
+        .paywall-message p { color: #92400e; margin-bottom: 20px; }
+
+        /* Typography & Spacing */
+        .content-section { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .content-section h2 { font-size: 32px; margin-bottom: 30px; color: #1e293b; }
+        .content-section h3 { font-size: 24px; margin-top: 40px; margin-bottom: 20px; color: #334155; }
+        .content-section p { font-size: 17px; line-height: 1.8; color: #475569; margin-bottom: 20px; }
+        
+        /* FAQ Styles */
+        .faq-item { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #e2e8f0; }
+        .faq-item h3 { font-size: 20px; color: #1e293b; margin-top: 0; margin-bottom: 15px; font-weight: 600; }
+        .faq-item p { margin-bottom: 0; }
+
+        /* Tutorial Styles */
+        .tutorial-step { display: flex; gap: 20px; margin-bottom: 30px; background: #f8fafc; padding: 25px; border-radius: var(--radius-md); border: 1px solid #e2e8f0; }
+        .step-number { background: var(--color-primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0; }
+        .step-content h4 { margin-top: 0; margin-bottom: 10px; font-size: 18px; color: #1e293b; }
+
+        /* Pricing Section */
+        .pricing-hook { display: flex; gap: 30px; margin: 60px auto; max-width: 800px; }
+        .price-card { flex: 1; padding: 40px; border-radius: var(--radius-lg); border: 2px solid #e2e8f0; text-align: center; }
+        .price-card.pro { border-color: var(--color-primary); background: #f0f4ff; position: relative; }
+        .price-card.pro::before { content: "Most Popular"; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .price-feature-list { list-style: none; padding: 0; margin: 0 0 30px 0; text-align: left; }
+        .price-feature-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: #475569; }
+        .price-feature-list li::before { content: "✓"; color: #10b981; font-weight: bold; }
+    </style>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How do I extract local business leads using AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Using an AI business data extractor, you simply input a search query such as 'restaurants in San Francisco'. The AI automatically identifies the structured data points (business name, phone number, address) on the page, bypasses complex website layouts, and extracts the leads into a structured table format without any manual coding."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the best tool for scraping local business information?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best tool for scraping local business information is a no login business data tool like Workfern. It runs entirely inside your browser, requiring no proxy setups, no credit cards to start, and no technical knowledge. It identifies leads accurately and exports them directly to CSV."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is it legal to scrape business data online?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it is generally legal to scrape publicly available business data online. The data scraped by a local business leads scraper is already visible to the public (such as business names and phone numbers on directories). You are simply automating the manual process of reading and recording public information."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How can I find business contacts without signing up?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can find business contacts without signing up by using a 'no login' browser extension. These tools operate locally on your device rather than sending data to cloud servers, which means there is no requirement to create an account or provide an email address before you begin scraping."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the character limit for scraping tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most modern AI business data extractors do not have strict character limits. Instead, they are often limited by 'rows' or 'results'. Workfern allows you to preview 10 results for free, and offers an unlimited Pro version that can scrape thousands of rows with no artificial caps."
+        }
+      }]
+    }
+    </script>
+
+    <!-- Structured Data: HowTo (Tutorial) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Use the AI Local Business Lead Extractor",
+      "step": [{
+        "@type": "HowToStep",
+        "name": "Enter Keywords",
+        "text": "In the search input box, type your target industry and location (e.g., 'Restaurants in New York')."
+      },{
+        "@type": "HowToStep",
+        "name": "Extract Leads",
+        "text": "Click the green 'Scrape Data' button. The AI will instantly begin processing the directory and gathering contact information."
+      },{
+        "@type": "HowToStep",
+        "name": "View and Export Data",
+        "text": "Review the extracted leads in the preview table. To save the data for your CRM, click the export button to download a formatted CSV file."
+      }]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#5A67D8"/>
+                    <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="#5A67D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Workfern</span>
+            </a>
+            <a href="#pricing" class="btn btn-dark">Get Pro</a>
+        </div>
+    </nav>
+
+    <!-- 1. HERO -->
+    <header class="hero" style="padding-bottom: 40px; background: #0f172a; color: white;">
+        <div class="container hero-container" style="text-align: center;">
+            <div class="hero-content" style="max-width: 800px; margin: 0 auto; padding: 60px 0;">
+                <h1 style="color: white; margin-bottom: 20px; font-size: 42px; line-height: 1.2;">
+                    AI Local Business Lead Extractor <br>
+                    <span style="color: #10b981; font-size: 0.8em;">(No Login Required)</span>
+                </h1>
+                <p style="font-size: 20px; color: #cbd5e1; margin-bottom: 30px;">
+                    Simple. Fast. Zero Friction. <br>
+                    Extract high-quality local business leads instantly using artificial intelligence.
+                </p>
+                <div class="hero-cta">
+                    <a href="#tool" class="btn btn-primary" style="font-size: 18px; padding: 15px 35px;">Start Scraping Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 5. TOOL INTERFACE (CTA Mockup) -->
+    <section id="tool" class="tool-ui-section">
+        <div class="container">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <input type="text" id="searchInput" class="tool-input" value="Restaurants in New York" placeholder="Enter keyword (e.g. Restaurants in New York)">
+                    <button id="scrapeBtn" class="tool-btn">Extract Leads Free</button>
+                </div>
+                <div class="table-container">
+                    <div class="loading-overlay" id="loadingOverlay">
+                        <div class="spinner"></div>
+                        <p style="font-weight: 600; color: #1e293b;">AI extracting leads...</p>
+                    </div>
+                    <table class="tool-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Business Name</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr style="opacity: 0.5;">
+                                <td>Enter a keyword and click Extract...</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Paywall Message -->
+                <div class="paywall-message" id="paywallMessage">
+                    <h4>⚠️ Free Limit Reached (10 Results Extracted)</h4>
+                    <p>The AI has found hundreds of additional matching businesses for this search query.</p>
+                    <a href="#pricing" class="btn btn-primary" style="background: #d97706;">Upgrade for unlimited leads</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. TUTORIAL / USAGE METHOD -->
+    <section class="content-section" style="padding-top: 0;">
+        <h2>How to Use the Extractor</h2>
+        <p>Using our AI-powered tool is designed to be as frictionless as possible. You do not need to read complex documentation or understand programming languages to get started. Follow these three simple steps:</p>
+        
+        <div class="tutorial-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h4>Enter Keywords</h4>
+                <p style="margin-bottom: 0;">In the tool interface above, type your target industry and location into the search bar. For example, try <strong>"restaurants in San Francisco"</strong> or <strong>"plumbers in Chicago"</strong>.</p>
+            </div>
+        </div>
+        
+        <div class="tutorial-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h4>Click "Extract Leads"</h4>
+                <p style="margin-bottom: 0;">Once you click the button, our AI engine immediately connects to public directories and maps, parses the DOM, and begins aggregating the contact data.</p>
+            </div>
+        </div>
+
+        <div class="tutorial-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h4>View and Export Data</h4>
+                <p style="margin-bottom: 0;">Instantly view the first 10 leads completely for free. Once you verify the accuracy of the data, you can upgrade to download the entire list directly into a clean CSV format.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SEO CONTENT (Long-form) -->
+    <section class="content-section" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; max-width: 100%;">
+        <div style="max-width: 900px; margin: 0 auto; padding: 40px 20px;">
+            <h2>The Future of B2B Lead Generation: AI Business Data Extractor</h2>
+            <p>Building a predictable B2B sales pipeline relies entirely on the quality and volume of your initial prospect data. For decades, sales teams have relied on expensive, outdated databases that suffer from high bounce rates and stale information. Today, the landscape has completely shifted. The most accurate data resides directly on public directories and business profiles. The challenge is no longer finding the data, but efficiently extracting it. This is where a dedicated <strong>local business leads scraper</strong> transforms your outbound strategy.</p>
+            
+            <p>Unlike traditional web scrapers that require you to manually point and click on CSS selectors, our <strong>AI business data extractor</strong> utilizes artificial intelligence to automatically identify and parse relevant business information. The AI understands the context of a page—it knows the difference between a business phone number and a fax number, and it can structure chaotic addresses into clean columns. This intelligent parsing completely removes the technical barrier to entry for lead generation.</p>
+            
+            <h3>Why Choose a No Login Business Data Tool?</h3>
+            <p>Friction is the enemy of productivity. Most tools in the market require you to hand over your email address, verify your account, enter a credit card, and navigate through a complex onboarding flow before you can even test if the software works for your specific use case. As a strictly <strong>no login business data tool</strong>, Workfern flips this model upside down. We believe in proving our value instantly. You open the tool, you run a search, and you see the data immediately. Zero friction. Zero risk.</p>
+
+            <p>Because the tool operates directly within your browser environment, it also avoids the traditional pitfalls of cloud-based scrapers. There are no massive data centers pooling your queries, which means fewer IP bans and faster extraction times. The AI runs locally, parsing the data that is already rendered on your screen, making it incredibly fast and highly respectful of your privacy.</p>
+
+            <h3>Use Cases: Who Benefits from AI Extraction?</h3>
+            
+            <p><strong>Real Estate Agents:</strong> The commercial real estate sector is fiercely competitive. Agents need to continuously prospect for local businesses that might be expanding, downsizing, or relocating. By utilizing an <strong>AI business data extractor</strong>, commercial brokers can instantly scrape entire zip codes, filtering for specific business categories to build targeted outreach lists without relying on expensive real estate data platforms.</p>
+            
+            <p><strong>Marketing Agencies:</strong> Whether you are selling local SEO, web design, or reputation management, your ideal clients are local businesses. Agencies use our <strong>local business leads scraper</strong> to audit local markets. You can quickly extract lists of businesses with low ratings or missing website links, and then run highly personalized cold email campaigns offering to solve those exact problems.</p>
+            
+            <p><strong>B2B SaaS Companies:</strong> Software companies that target specific local verticals (e.g., software for dentists, inventory systems for restaurants) need massive, clean datasets to feed their SDR teams. A <strong>no login business data tool</strong> allows growth teams to generate fresh lists on demand, ensuring that their sales representatives are always dialing active, verified local businesses.</p>
+            
+            <h3>Scaling Your Cold Outreach</h3>
+            <p>When you transition from manual prospecting to AI-driven extraction, the bottleneck shifts from data collection to outreach execution. With the ability to generate thousands of leads in minutes, you can begin deploying omnichannel cold outreach campaigns. You can feed these CSV exports directly into tools like Lemlist, Instantly, or your native CRM. The <strong>local business leads scraper</strong> ensures your top-of-funnel is never empty, allowing your team to focus entirely on closing deals.</p>
+            
+            <p>Stop wasting hours manually copying and pasting information from directories. Stop paying thousands of dollars for stale data sets. Leverage the power of an <strong>AI business data extractor</strong> today, and experience the speed of a truly modern, <strong>no login business data tool</strong>.</p>
+        </div>
+    </section>
+
+    <!-- 2. FAQ SECTION (Featured Snippets Optimized) -->
+    <section class="content-section">
+        <h2>Frequently Asked Questions</h2>
+        <p style="margin-bottom: 40px;">Everything you need to know about extracting local business data.</p>
+        
+        <div class="faq-item">
+            <h3>How do I extract local business leads using AI?</h3>
+            <p>Using an AI business data extractor, you simply input a search query such as 'restaurants in San Francisco'. The AI automatically identifies the structured data points (business name, phone number, address) on the page, bypasses complex website layouts, and extracts the leads into a structured table format without any manual coding.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is the best tool for scraping local business information?</h3>
+            <p>The best tool for scraping local business information is a no login business data tool like Workfern. It runs entirely inside your browser, requiring no proxy setups, no credit cards to start, and no technical knowledge. It identifies leads accurately and exports them directly to CSV.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is it legal to scrape business data online?</h3>
+            <p>Yes, it is generally legal to scrape publicly available business data online. The data scraped by a local business leads scraper is already visible to the public (such as business names and phone numbers on directories). You are simply automating the manual process of reading and recording public information.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How can I find business contacts without signing up?</h3>
+            <p>You can find business contacts without signing up by using a 'no login' browser extension. These tools operate locally on your device rather than sending data to cloud servers, which means there is no requirement to create an account or provide an email address before you begin scraping.</p>
+        </div>
+
+        <div class="faq-item" style="border-bottom: none;">
+            <h3>What is the character limit for scraping tools?</h3>
+            <p>Most modern AI business data extractors do not have strict character limits. Instead, they are often limited by 'rows' or 'results'. Workfern allows you to preview 10 results for free, and offers an unlimited Pro version that can scrape thousands of rows with no artificial caps.</p>
+        </div>
+    </section>
+
+    <!-- 6. PRO VERSION UPSELL -->
+    <section id="pricing" class="content-section" style="padding-top: 0;">
+        <h2 style="text-align: center;">Ready to Scale Your Lead Generation?</h2>
+        <p style="text-align: center;">You've seen the power of AI extraction. Now unlock the full potential.</p>
+        
+        <div class="pricing-hook">
+            <div class="price-card">
+                <h3 style="margin-top: 0; font-size: 24px;">Free Tester</h3>
+                <p style="color: #64748b; margin-bottom: 30px;">Perfect for evaluating data quality.</p>
+                <ul class="price-feature-list">
+                    <li>Extract up to 10 results</li>
+                    <li>AI Data Parsing</li>
+                    <li>No Login Required</li>
+                </ul>
+                <button class="btn btn-dark" style="width: 100%;" onclick="window.scrollTo(0,0);">Test For Free</button>
+            </div>
+            <div class="price-card pro">
+                <h3 style="margin-top: 0; font-size: 24px; color: var(--color-primary);">Pro Version</h3>
+                <p style="color: #64748b; margin-bottom: 30px;">For serious sales teams and agencies.</p>
+                <ul class="price-feature-list">
+                    <li><strong>Unlimited Scraping</strong> (No caps)</li>
+                    <li><strong>Export CSV</strong> in one click</li>
+                    <li><strong>Faster Processing</strong> engine</li>
+                    <li>Priority Customer Support</li>
+                </ul>
+                <a href="#" class="btn btn-primary" style="width: 100%; display: block; box-sizing: border-box;">Upgrade to Pro</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#5A67D8"/>
+                        <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="#5A67D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Workfern</span>
+                </div>
+                <p>The ultimate lead generation scraper for local businesses.</p>
+            </div>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Tool Script -->
+    <script>
+        const scrapeBtn = document.getElementById('scrapeBtn');
+        const overlay = document.getElementById('loadingOverlay');
+        const tableBody = document.getElementById('tableBody');
+        const paywall = document.getElementById('paywallMessage');
+        const searchInput = document.getElementById('searchInput');
+
+        const generateFakeData = (keyword) => {
+            const types = ['LLC', 'Inc', 'Co.', 'Partners'];
+            const streets = ['Broadway', '5th Ave', 'Main St', 'Oak Lane', 'Maple Dr'];
+            const data = [];
+            
+            let baseName = keyword.split(' ')[0] || 'Business';
+            baseName = baseName.charAt(0).toUpperCase() + baseName.slice(1);
+
+            for(let i=1; i<=10; i++) {
+                data.push({
+                    name: `${baseName} Solutions ${types[Math.floor(Math.random()*types.length)]}`,
+                    phone: `(555) ${Math.floor(100 + Math.random() * 900)}-${Math.floor(1000 + Math.random() * 9000)}`,
+                    address: `${Math.floor(100 + Math.random() * 9000)} ${streets[Math.floor(Math.random()*streets.length)]}, NY`
+                });
+            }
+            return data;
+        };
+
+        scrapeBtn.addEventListener('click', () => {
+            const keyword = searchInput.value || 'Restaurants';
+            
+            overlay.style.display = 'flex';
+            paywall.style.display = 'none';
+            tableBody.innerHTML = '';
+
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                const results = generateFakeData(keyword);
+                
+                results.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td style="font-weight: 500;">${row.name}</td>
+                        <td style="color: #059669; font-family: monospace;">${row.phone}</td>
+                        <td>${row.address}</td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+
+                setTimeout(() => {
+                    paywall.style.display = 'block';
+                }, 500);
+
+            }, 1800);
+        });
+    </script>
+</body>
+</html>

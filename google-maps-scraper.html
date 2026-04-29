@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Google Maps Scraper (No Login Required) | Workfern</title>
+    <meta name="description" content="Use our free Google Maps scraper to extract local business leads instantly. No coding or login required. Upgrade to export unlimited CSV data.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Tool UI Styles */
+        .tool-ui-section {
+            padding: 60px 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+        .tool-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        .tool-header {
+            background: #1e293b;
+            padding: 20px 30px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .tool-input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+        .tool-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .tool-btn:hover { background: #059669; }
+        
+        .table-container {
+            padding: 0;
+            overflow-x: auto;
+            position: relative;
+        }
+        .tool-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .tool-table th {
+            background: #f1f5f9;
+            padding: 15px 20px;
+            font-weight: 600;
+            color: #475569;
+            font-size: 14px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .tool-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #1e293b;
+            font-size: 14px;
+        }
+        .tool-table tr:hover { background: #f8fafc; }
+        
+        /* Loading Overlay */
+        .loading-overlay {
+            display: none;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.9);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .spinner {
+            width: 40px; height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #10b981;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Paywall */
+        .paywall-message {
+            display: none;
+            background: #fffbeb;
+            border-top: 1px solid #fde68a;
+            padding: 30px;
+            text-align: center;
+        }
+        .paywall-message h4 { color: #d97706; margin-bottom: 10px; font-size: 18px; }
+        .paywall-message p { color: #92400e; margin-bottom: 20px; }
+        
+        /* Content formatting */
+        .long-form-content h2 { margin-top: 50px; margin-bottom: 20px; font-size: 28px; }
+        .long-form-content h3 { margin-top: 30px; margin-bottom: 15px; font-size: 22px; }
+        .long-form-content p { font-size: 17px; line-height: 1.8; margin-bottom: 20px; color: #4a5568; }
+        .long-form-content ul { margin-bottom: 30px; padding-left: 20px; }
+        .long-form-content li { margin-bottom: 10px; font-size: 17px; color: #4a5568; }
+        
+        /* Cards */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0; }
+        .use-case-card { background: white; padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid #e2e8f0; }
+        
+        /* Pricing */
+        .pricing-hook { display: flex; gap: 30px; margin: 60px auto; max-width: 800px; }
+        .price-card { flex: 1; padding: 40px; border-radius: var(--radius-lg); border: 2px solid #e2e8f0; text-align: center; }
+        .price-card.pro { border-color: var(--color-primary); background: #f0f4ff; position: relative; }
+        .price-card.pro::before { content: "Most Popular"; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .price-title { font-size: 24px; font-weight: bold; margin-bottom: 15px; }
+        .price-feature { margin-bottom: 25px; color: #4a5568; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#5A67D8"/>
+                    <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="#5A67D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Workfern</span>
+            </a>
+            <a href="#pricing" class="btn btn-dark">Get Pro</a>
+        </div>
+    </nav>
+
+    <!-- 1. HERO -->
+    <header class="hero" style="padding-bottom: 40px;">
+        <div class="hero-bg-gradient"></div>
+        <div class="container hero-container" style="text-align: center;">
+            <div class="hero-content" style="max-width: 800px; margin: 0 auto;">
+                <h1 class="text-gradient">Free Google Maps Scraper <br><span style="font-size: 0.7em; color: #4a5568;">(No Login Required)</span></h1>
+                <p style="font-size: 22px; margin-bottom: 30px;">Extract business leads instantly. Turn any search result into a clean, downloadable spreadsheet.</p>
+                <div class="hero-cta">
+                    <a href="#tool" class="btn btn-primary btn-large">Start Scraping Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. TOOL UI (Interactive Demo) -->
+    <section id="tool" class="tool-ui-section">
+        <div class="container">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <input type="text" id="searchInput" class="tool-input" value="Restaurants in New York" placeholder="Enter keyword (e.g. Plumbers in London)">
+                    <button id="scrapeBtn" class="tool-btn">Scrape Data</button>
+                </div>
+                <div class="table-container">
+                    <div class="loading-overlay" id="loadingOverlay">
+                        <div class="spinner"></div>
+                        <p style="font-weight: 600; color: #1e293b;">Connecting to Google Maps...</p>
+                    </div>
+                    <table class="tool-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Business Name</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr style="opacity: 0.5;">
+                                <td>Enter a keyword and click Scrape Data...</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Paywall Message -->
+                <div class="paywall-message" id="paywallMessage">
+                    <h4>⚠️ Free Limit Reached (10/10 Rows)</h4>
+                    <p>There are 245 more businesses matching your search. Upgrade to Pro to export unlimited leads to CSV.</p>
+                    <a href="#pricing" class="btn btn-primary">Upgrade to Export Unlimited Leads</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container long-form-content">
+        
+        <!-- 3. SEO CONTENT (1000+ words strategy) -->
+        <section class="seo-content" style="margin-top: 60px;">
+            <h2>The Ultimate Google Maps Scraper Free Alternative</h2>
+            <p>If you are trying to build a B2B sales pipeline, you already know that Google Maps is the richest, most up-to-date database of local businesses on the planet. However, manually copying and pasting business names, phone numbers, website URLs, and physical addresses is soul-crushing, error-prone work. That is exactly why finding a reliable <strong>google maps scraper free</strong> tool is critical for modern sales teams, marketing agencies, and independent freelancers.</p>
+            <p>Unlike outdated desktop software that requires complex configurations, proxies, and captcha solvers, Workfern acts as a powerful <strong>local business leads extractor</strong> directly inside your browser. You don't need to rent expensive proxy IPs, you don't need to learn Python or JavaScript, and most importantly, you don't even need to create an account to start testing it. Just enter your target keyword, and watch the data flow instantly into a structured format.</p>
+            
+            <h3>Why Use a No Coding Scraper Tool?</h3>
+            <p>Historically, to <strong>scrape business data online</strong>, you had to either hire an expensive backend developer to write a custom script using tools like Selenium or BeautifulSoup, or buy clunky enterprise software. The problem? When Google inevitably updated its DOM layout or class names, your custom script would break immediately, costing you more money and downtime to fix.</p>
+            <p>Workfern completely eliminates this technical debt. As a true <strong>no coding scraper tool</strong>, it uses intelligent algorithms to automatically identify the structured data on the page regardless of minor UI changes. Whether you are searching for real estate brokers in Miami, plumbing contractors in Chicago, or digital marketing agencies in London, our engine handles the complex infinite scroll mechanisms, bypasses the aggressive pagination blocks, and organizes the chaotic, unstructured HTML into a beautiful, export-ready table.</p>
+            
+            <h3>Deep Data Quality and Contact Enrichment</h3>
+            <p>Pulling basic surface-level data from Google Maps is just the first step. A premium <strong>local business leads extractor</strong> needs to provide actionable, verified contact information. Workfern doesn't just stop at the directory listing. It acts as an intelligent agent, scanning the surface data and providing you with highly accurate phone numbers, physical addresses, star ratings, and review counts.</p>
+            <p>Furthermore, when you use our tool to <strong>scrape business data online</strong>, you are capturing real-time data. You are not relying on a stale, 6-month-old purchased database where half the phone numbers are disconnected and the businesses have closed down. You are extracting the exact information that businesses themselves maintain and update on their Google Business Profiles today.</p>
+            
+            <h3>The Hidden Costs of "Free" Alternatives</h3>
+            <p>There are many tools on the market that claim to be a <strong>google maps scraper free</strong> of charge. However, once you install them, you hit a massive paywall after 5 or 10 clicks, or worse, they force you to create an account and immediately start spamming your inbox. By using a <strong>no coding scraper tool</strong> free of forced logins, you maintain your privacy while evaluating the tool's true capability.</p>
+            <p>We firmly believe that software should prove its value before asking for your credit card. That is why our freemium model allows you to test the waters immediately. Experience the speed, accuracy, and ease-of-use firsthand. See exactly how the data formats in the preview table before you commit to upgrading.</p>
+
+            <h3>How Local SEO and B2B Sales Leverage This Data</h3>
+            <p>Imagine being a local SEO consultant. Your goal is to find businesses that have poor reviews (under 3.5 stars) or haven't claimed their Google Business Profile. Doing this manually for a city like New York would take months. With a dedicated <strong>local business leads extractor</strong>, you can scrape hundreds of listings in minutes, filter by review score, and immediately build a hyper-targeted outreach campaign offering reputation management services.</p>
+            <p>For B2B wholesalers, the use case is equally powerful. If you sell commercial restaurant equipment, your target audience is every new and existing restaurant in the state. By deploying our tool to <strong>scrape business data online</strong>, you can instantly build a localized cold-calling list complete with direct business lines and physical addresses for direct mail campaigns.</p>
+
+            <h3>Stop Wasting Time on Manual Data Entry</h3>
+            <p>Whether you need to build local citations, conduct rigorous market research, or fuel your cold calling team with fresh daily numbers, having direct, automated access to Google Maps data transforms hours of manual labor into seconds of automated joy. The data is already public; you just need the right vehicle to collect it efficiently. Start using the best <strong>no coding scraper tool</strong> today and scale your lead generation efforts without scaling your headcount.</p>
+        </section>
+
+        <!-- 4. USE CASES -->
+        <section class="use-cases" style="margin-top: 80px;">
+            <h2 style="text-align: center;">Who Uses Workfern?</h2>
+            <div class="grid-3">
+                <div class="use-case-card">
+                    <h3 style="color: var(--color-primary); margin-top: 0;">🏡 Real Estate Agents</h3>
+                    <p>Identify commercial properties, local contractors, and property management firms. Build targeted outreach lists for commercial real estate prospecting without paying for expensive database subscriptions.</p>
+                </div>
+                <div class="use-case-card">
+                    <h3 style="color: var(--color-primary); margin-top: 0;">📈 Marketing Agencies</h3>
+                    <p>Find local businesses with poor reviews, missing websites, or unclaimed listings. Pitch your SEO, web design, or reputation management services directly to the businesses that need them most.</p>
+                </div>
+                <div class="use-case-card">
+                    <h3 style="color: var(--color-primary); margin-top: 0;">💻 Local SEO Freelancers</h3>
+                    <p>Conduct massive competitor analysis. Scrape entire cities to understand local market saturation, identify link-building opportunities, and generate hyper-local lead magnets for your own clients.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PRICING HOOK -->
+        <section id="pricing" class="pricing-section">
+            <h2 style="text-align: center;">Simple, Transparent Pricing</h2>
+            <p style="text-align: center; font-size: 18px;">Start for free. Upgrade when you need serious volume.</p>
+            
+            <div class="pricing-hook">
+                <div class="price-card">
+                    <div class="price-title">Free Plan</div>
+                    <div class="price-feature">Preview up to 10 results per search</div>
+                    <p style="margin-bottom: 30px; font-size: 15px; color: #718096;">Perfect for testing the waters and verifying data quality.</p>
+                    <button class="btn btn-dark" style="width: 100%;" onclick="document.getElementById('searchInput').focus();">Try For Free</button>
+                </div>
+                <div class="price-card pro">
+                    <div class="price-title">Pro Plan</div>
+                    <div class="price-feature" style="font-weight: 600; color: var(--color-primary);">Unlimited Scraping + CSV Export</div>
+                    <p style="margin-bottom: 30px; font-size: 15px; color: #718096;">Built for sales teams. Export massive datasets instantly.</p>
+                    <a href="#" class="btn btn-primary" style="width: 100%; display: block; box-sizing: border-box;">Upgrade Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. FAQ -->
+        <section class="faq-section" style="margin-bottom: 100px;">
+            <h2 style="text-align: center;">Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; margin-top: 40px;">
+                <div style="padding: 25px; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
+                    <h3 style="margin-top: 0; font-size: 18px;">Is this legal?</h3>
+                    <p style="margin-bottom: 0;">Yes. Workfern only extracts publicly available data that is already visible on the internet. We do not bypass passwords, hack servers, or scrape private, behind-login information. Scraping public data is legal and widely practiced in B2B sales.</p>
+                </div>
+                <div style="padding: 25px; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
+                    <h3 style="margin-top: 0; font-size: 18px;">Do I need coding skills?</h3>
+                    <p style="margin-bottom: 0;">Absolutely not. Workfern is a completely no-code tool. If you know how to type a search query into Google Maps, you know how to use Workfern. There are no CSS selectors to configure and no APIs to connect.</p>
+                </div>
+                <div style="padding: 25px; border: 1px solid #e2e8f0; border-radius: var(--radius-sm);">
+                    <h3 style="margin-top: 0; font-size: 18px;">Can I export leads?</h3>
+                    <p style="margin-bottom: 0;">Yes! While the free version allows you to view a sample of the data, upgrading to the Pro plan allows you to download unlimited results directly to a clean, organized CSV file that you can import straight into Excel, Google Sheets, or your CRM.</p>
+                </div>
+            </div>
+        </section>
+
+    </div> <!-- End Container -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#5A67D8"/>
+                        <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="#5A67D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Workfern</span>
+                </div>
+                <p>The ultimate lead generation scraper for local businesses.</p>
+            </div>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Tool Script -->
+    <script>
+        const scrapeBtn = document.getElementById('scrapeBtn');
+        const overlay = document.getElementById('loadingOverlay');
+        const tableBody = document.getElementById('tableBody');
+        const paywall = document.getElementById('paywallMessage');
+        const searchInput = document.getElementById('searchInput');
+
+        // Fake data generator for demo purposes
+        const generateFakeData = (keyword) => {
+            const types = ['LLC', 'Inc', 'Co.', 'Partners'];
+            const streets = ['Broadway', '5th Ave', 'Main St', 'Oak Lane', 'Maple Dr'];
+            const data = [];
+            
+            let baseName = keyword.split(' ')[0] || 'Business';
+            baseName = baseName.charAt(0).toUpperCase() + baseName.slice(1);
+
+            for(let i=1; i<=10; i++) {
+                data.push({
+                    name: `${baseName} Solutions ${types[Math.floor(Math.random()*types.length)]}`,
+                    phone: `(555) ${Math.floor(100 + Math.random() * 900)}-${Math.floor(1000 + Math.random() * 9000)}`,
+                    address: `${Math.floor(100 + Math.random() * 9000)} ${streets[Math.floor(Math.random()*streets.length)]}, NY`
+                });
+            }
+            return data;
+        };
+
+        scrapeBtn.addEventListener('click', () => {
+            const keyword = searchInput.value || 'Restaurants';
+            
+            // Show loading
+            overlay.style.display = 'flex';
+            paywall.style.display = 'none';
+            tableBody.innerHTML = '';
+
+            // Simulate network request
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                
+                const results = generateFakeData(keyword);
+                
+                results.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td style="font-weight: 500;">${row.name}</td>
+                        <td style="color: #059669; font-family: monospace;">${row.phone}</td>
+                        <td>${row.address}</td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+
+                // Show paywall after rendering table
+                setTimeout(() => {
+                    paywall.style.display = 'block';
+                }, 500);
+
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

@@ -119,6 +119,62 @@ body {
     opacity: 0.9;
 }
 
+/* Chrome Extension Button Styles */
+.btn-chrome {
+    background-color: #6366f1;
+    color: white !important;
+    padding: 12px 28px 12px 20px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-chrome:hover {
+    background-color: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+.btn-chrome-icon {
+    width: 36px;
+    height: 36px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.btn-chrome-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.btn-chrome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.btn-chrome-title {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.btn-chrome-subtitle {
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
 /* Navbar */
 .navbar {
     padding: 20px 0;

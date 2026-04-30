@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "amazon-data-scraper",
+    "keyword": "Amazon data scraper",
+    "platform": "Amazon",
+    "data_type": "product listings",
+    "page_type": "landing"
+  },
+  {
+    "slug": "google-maps-data-scraper",
+    "keyword": "Google Maps data scraper",
+    "platform": "Google Maps",
+    "data_type": "business listings",
+    "page_type": "landing"
+  },
+  {
+    "slug": "instant-data-scraper-alternative",
+    "keyword": "Instant Data Scraper alternative",
+    "platform": "any",
+    "data_type": "data",
+    "page_type": "comparison"
+  }
+]

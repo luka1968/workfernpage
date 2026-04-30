@@ -1,0 +1,107 @@
+[
+  {
+    "lang": "en",
+    "content_blocks": {
+      "intro": "Looking for the best {{keyword}}? Workfern is the #1 free Chrome extension to extract {{data_type}} from {{platform}} — no code, no login, no limits. Install in one click and start downloading clean CSV files in under 30 seconds.",
+      "steps": [
+        {
+          "title": "Install Workfern Free",
+          "body": "Add Workfern to Chrome from the Web Store in one click. No account, no email, no credit card required. The extension appears in your toolbar immediately and is ready to use."
+        },
+        {
+          "title": "Open {{platform}} & Search",
+          "body": "Navigate to {{platform}} in Chrome and run your search or browse to the page containing the {{data_type}} you want. Workfern works on any {{platform}} page without any setup."
+        },
+        {
+          "title": "Extract & Download CSV",
+          "body": "Click the Workfern icon and hit Extract. The AI identifies every {{data_type}} on the page and exports a clean, structured CSV instantly — unlimited rows, zero restrictions."
+        }
+      ],
+      "cta": "Start extracting {{data_type}} from {{platform}} right now — completely free. No login. No limits. No credit card. Just install and click."
+    }
+  },
+  {
+    "lang": "es",
+    "content_blocks": {
+      "intro": "¿Buscas la mejor herramienta para {{keyword}}? Workfern es la extensión de Chrome gratuita nº1 para extraer {{data_type}} de {{platform}} — sin código, sin registro, sin límites. Instálala en un clic y descarga archivos CSV limpios en menos de 30 segundos.",
+      "steps": [
+        {
+          "title": "Instala Workfern gratis",
+          "body": "Añade Workfern a Chrome desde la tienda web en un solo clic. Sin cuenta, sin correo electrónico, sin tarjeta de crédito. La extensión aparece en tu barra de herramientas de inmediato y está lista para usar."
+        },
+        {
+          "title": "Abre {{platform}} y busca",
+          "body": "Ve a {{platform}} en Chrome y realiza tu búsqueda o navega a la página que contiene los {{data_type}} que necesitas. Workfern funciona en cualquier página de {{platform}} sin configuración previa."
+        },
+        {
+          "title": "Extrae y descarga tu CSV",
+          "body": "Haz clic en el icono de Workfern y pulsa Extraer. La IA identifica cada {{data_type}} en la página y exporta un CSV limpio y estructurado al instante — filas ilimitadas, sin restricciones."
+        }
+      ],
+      "cta": "Empieza a extraer {{data_type}} de {{platform}} ahora mismo — completamente gratis. Sin registro. Sin límites. Sin tarjeta de crédito. Solo instala y haz clic."
+    }
+  },
+  {
+    "lang": "de",
+    "content_blocks": {
+      "intro": "Sie suchen das beste Tool für {{keyword}}? Workfern ist die #1 kostenlose Chrome-Erweiterung zum Extrahieren von {{data_type}} aus {{platform}} — ohne Code, ohne Anmeldung, ohne Limits. Installieren Sie es mit einem Klick und laden Sie in unter 30 Sekunden saubere CSV-Dateien herunter.",
+      "steps": [
+        {
+          "title": "Workfern kostenlos installieren",
+          "body": "Fügen Sie Workfern mit einem Klick aus dem Chrome Web Store hinzu. Kein Konto, keine E-Mail, keine Kreditkarte erforderlich. Die Erweiterung erscheint sofort in Ihrer Symbolleiste und ist einsatzbereit."
+        },
+        {
+          "title": "{{platform}} öffnen & suchen",
+          "body": "Navigieren Sie zu {{platform}} in Chrome und führen Sie Ihre Suche durch oder wechseln Sie zur Seite mit den gewünschten {{data_type}}. Workfern funktioniert auf jeder {{platform}}-Seite ohne weitere Konfiguration."
+        },
+        {
+          "title": "Daten extrahieren & CSV herunterladen",
+          "body": "Klicken Sie auf das Workfern-Symbol und dann auf Extrahieren. Die KI erkennt alle {{data_type}} auf der Seite und exportiert sofort eine saubere, strukturierte CSV-Datei — unbegrenzte Zeilen, keine Einschränkungen."
+        }
+      ],
+      "cta": "Beginnen Sie jetzt mit der Extraktion von {{data_type}} aus {{platform}} — völlig kostenlos. Keine Anmeldung. Keine Limits. Keine Kreditkarte. Einfach installieren und klicken."
+    }
+  },
+  {
+    "lang": "fr",
+    "content_blocks": {
+      "intro": "Vous cherchez le meilleur outil pour {{keyword}} ? Workfern est l'extension Chrome gratuite n°1 pour extraire des {{data_type}} depuis {{platform}} — sans code, sans inscription, sans limites. Installez-la en un clic et téléchargez des fichiers CSV propres en moins de 30 secondes.",
+      "steps": [
+        {
+          "title": "Installez Workfern gratuitement",
+          "body": "Ajoutez Workfern à Chrome depuis le Web Store en un seul clic. Aucun compte, aucun email, aucune carte bancaire requis. L'extension apparaît immédiatement dans votre barre d'outils et est prête à l'emploi."
+        },
+        {
+          "title": "Ouvrez {{platform}} et lancez votre recherche",
+          "body": "Rendez-vous sur {{platform}} dans Chrome et effectuez votre recherche ou accédez à la page contenant les {{data_type}} dont vous avez besoin. Workfern fonctionne sur n'importe quelle page {{platform}} sans aucune configuration."
+        },
+        {
+          "title": "Extrayez et téléchargez votre CSV",
+          "body": "Cliquez sur l'icône Workfern puis sur Extraire. L'IA identifie chaque {{data_type}} sur la page et exporte instantanément un fichier CSV propre et structuré — lignes illimitées, sans restriction."
+        }
+      ],
+      "cta": "Commencez à extraire des {{data_type}} depuis {{platform}} maintenant — totalement gratuit. Sans inscription. Sans limites. Sans carte bancaire. Installez et cliquez, c'est tout."
+    }
+  },
+  {
+    "lang": "ja",
+    "content_blocks": {
+      "intro": "{{keyword}}に最適なツールをお探しですか？Workfernは、{{platform}}から{{data_type}}を抽出するための、No.1の無料Chrome拡張機能です。コード不要、ログイン不要、制限なし。ワンクリックでインストールして、30秒以内にきれいなCSVファイルをダウンロードできます。",
+      "steps": [
+        {
+          "title": "Workfernを無料でインストール",
+          "body": "ChromeウェブストアからWorkfernをワンクリックで追加できます。アカウント、メールアドレス、クレジットカードは一切不要です。インストール直後からツールバーにアイコンが表示され、すぐに使い始められます。"
+        },
+        {
+          "title": "{{platform}}を開いて検索する",
+          "body": "ChromeでK{{platform}}にアクセスし、検索を実行するか、抽出したい{{data_type}}が含まれるページを開いてください。Workfernは{{platform}}のあらゆるページで、設定なしで動作します。"
+        },
+        {
+          "title": "データを抽出してCSVをダウンロード",
+          "body": "Workfernアイコンをクリックして「抽出」を押すだけです。AIがページ上のすべての{{data_type}}を識別し、すっきりと整理されたCSVファイルを即座にエクスポートします。行数無制限、制約一切なし。"
+        }
+      ],
+      "cta": "今すぐ{{platform}}から{{data_type}}の抽出を始めましょう — 完全無料。ログイン不要。制限なし。クレジットカード不要。インストールしてクリックするだけです。"
+    }
+  }
+]

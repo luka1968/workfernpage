@@ -1,0 +1,1052 @@
+﻿[
+    {
+        "keyword":  "Amazon data scraper",
+        "category":  "platform",
+        "platform":  "Amazon",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Amazon for leads",
+        "category":  "platform",
+        "platform":  "Amazon",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "LinkedIn data scraper",
+        "category":  "platform",
+        "platform":  "LinkedIn",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape LinkedIn for leads",
+        "category":  "platform",
+        "platform":  "LinkedIn",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Google Maps data scraper",
+        "category":  "platform",
+        "platform":  "Google Maps",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Google Maps for leads",
+        "category":  "platform",
+        "platform":  "Google Maps",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Yelp data scraper",
+        "category":  "platform",
+        "platform":  "Yelp",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Yelp for leads",
+        "category":  "platform",
+        "platform":  "Yelp",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Zillow data scraper",
+        "category":  "platform",
+        "platform":  "Zillow",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Zillow for leads",
+        "category":  "platform",
+        "platform":  "Zillow",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Shopify data scraper",
+        "category":  "platform",
+        "platform":  "Shopify",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Shopify for leads",
+        "category":  "platform",
+        "platform":  "Shopify",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Yellow Pages data scraper",
+        "category":  "platform",
+        "platform":  "Yellow Pages",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Yellow Pages for leads",
+        "category":  "platform",
+        "platform":  "Yellow Pages",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Ebay data scraper",
+        "category":  "platform",
+        "platform":  "Ebay",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Ebay for leads",
+        "category":  "platform",
+        "platform":  "Ebay",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Instagram data scraper",
+        "category":  "platform",
+        "platform":  "Instagram",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Instagram for leads",
+        "category":  "platform",
+        "platform":  "Instagram",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Facebook data scraper",
+        "category":  "platform",
+        "platform":  "Facebook",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Facebook for leads",
+        "category":  "platform",
+        "platform":  "Facebook",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Twitter data scraper",
+        "category":  "platform",
+        "platform":  "Twitter",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Twitter for leads",
+        "category":  "platform",
+        "platform":  "Twitter",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "TikTok data scraper",
+        "category":  "platform",
+        "platform":  "TikTok",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape TikTok for leads",
+        "category":  "platform",
+        "platform":  "TikTok",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "TripAdvisor data scraper",
+        "category":  "platform",
+        "platform":  "TripAdvisor",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape TripAdvisor for leads",
+        "category":  "platform",
+        "platform":  "TripAdvisor",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Indeed data scraper",
+        "category":  "platform",
+        "platform":  "Indeed",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Indeed for leads",
+        "category":  "platform",
+        "platform":  "Indeed",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Glassdoor data scraper",
+        "category":  "platform",
+        "platform":  "Glassdoor",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "scrape Glassdoor for leads",
+        "category":  "platform",
+        "platform":  "Glassdoor",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "free web scraper for leads",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "free web scraper for emails",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "emails",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "free web scraper for product prices",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "product prices",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "free web scraper for reviews",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "reviews",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "no code web scraper for leads",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "no code web scraper for emails",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "emails",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "no code web scraper for product prices",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "product prices",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "no code web scraper for reviews",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "reviews",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "automated web scraper for leads",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "automated web scraper for emails",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "emails",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "automated web scraper for product prices",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "product prices",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "automated web scraper for reviews",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "reviews",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "AI web scraper for leads",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "AI web scraper for emails",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "emails",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "AI web scraper for product prices",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "product prices",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "AI web scraper for reviews",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "reviews",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "easy web scraper for leads",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "easy web scraper for emails",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "emails",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "easy web scraper for product prices",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "product prices",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "easy web scraper for reviews",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "reviews",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "best web scraper for leads",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "best web scraper for emails",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "emails",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "best web scraper for product prices",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "product prices",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "best web scraper for reviews",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "reviews",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "online web scraper for leads",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "online web scraper for emails",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "emails",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "online web scraper for product prices",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "product prices",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "online web scraper for reviews",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "reviews",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "chrome extension web scraper for leads",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "chrome extension web scraper for emails",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "emails",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "chrome extension web scraper for product prices",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "product prices",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "chrome extension web scraper for reviews",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "reviews",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "no login data scraper",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "unlimited free web scraper",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "browser based scraper tool",
+        "category":  "tool",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Amazon without coding",
+        "category":  "tutorial",
+        "platform":  "Amazon",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Amazon",
+        "category":  "tutorial",
+        "platform":  "Amazon",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape LinkedIn without coding",
+        "category":  "tutorial",
+        "platform":  "LinkedIn",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from LinkedIn",
+        "category":  "tutorial",
+        "platform":  "LinkedIn",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Google Maps without coding",
+        "category":  "tutorial",
+        "platform":  "Google Maps",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Google Maps",
+        "category":  "tutorial",
+        "platform":  "Google Maps",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Yelp without coding",
+        "category":  "tutorial",
+        "platform":  "Yelp",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Yelp",
+        "category":  "tutorial",
+        "platform":  "Yelp",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Zillow without coding",
+        "category":  "tutorial",
+        "platform":  "Zillow",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Zillow",
+        "category":  "tutorial",
+        "platform":  "Zillow",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Shopify without coding",
+        "category":  "tutorial",
+        "platform":  "Shopify",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Shopify",
+        "category":  "tutorial",
+        "platform":  "Shopify",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Yellow Pages without coding",
+        "category":  "tutorial",
+        "platform":  "Yellow Pages",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Yellow Pages",
+        "category":  "tutorial",
+        "platform":  "Yellow Pages",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Ebay without coding",
+        "category":  "tutorial",
+        "platform":  "Ebay",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Ebay",
+        "category":  "tutorial",
+        "platform":  "Ebay",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Instagram without coding",
+        "category":  "tutorial",
+        "platform":  "Instagram",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Instagram",
+        "category":  "tutorial",
+        "platform":  "Instagram",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Facebook without coding",
+        "category":  "tutorial",
+        "platform":  "Facebook",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Facebook",
+        "category":  "tutorial",
+        "platform":  "Facebook",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Twitter without coding",
+        "category":  "tutorial",
+        "platform":  "Twitter",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Twitter",
+        "category":  "tutorial",
+        "platform":  "Twitter",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape TikTok without coding",
+        "category":  "tutorial",
+        "platform":  "TikTok",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from TikTok",
+        "category":  "tutorial",
+        "platform":  "TikTok",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape TripAdvisor without coding",
+        "category":  "tutorial",
+        "platform":  "TripAdvisor",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from TripAdvisor",
+        "category":  "tutorial",
+        "platform":  "TripAdvisor",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Indeed without coding",
+        "category":  "tutorial",
+        "platform":  "Indeed",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Indeed",
+        "category":  "tutorial",
+        "platform":  "Indeed",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to scrape Glassdoor without coding",
+        "category":  "tutorial",
+        "platform":  "Glassdoor",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "guide to extracting data from Glassdoor",
+        "category":  "tutorial",
+        "platform":  "Glassdoor",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "how to extract leads from websites",
+        "category":  "tutorial",
+        "platform":  "any",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "how to extract emails from websites",
+        "category":  "tutorial",
+        "platform":  "any",
+        "data_type":  "emails",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "how to extract phone numbers from websites",
+        "category":  "tutorial",
+        "platform":  "any",
+        "data_type":  "phone numbers",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "how to extract product prices from websites",
+        "category":  "tutorial",
+        "platform":  "any",
+        "data_type":  "product prices",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "how to extract reviews from websites",
+        "category":  "tutorial",
+        "platform":  "any",
+        "data_type":  "reviews",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "how to extract job postings from websites",
+        "category":  "tutorial",
+        "platform":  "any",
+        "data_type":  "job postings",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "how to extract real estate listings from websites",
+        "category":  "tutorial",
+        "platform":  "any",
+        "data_type":  "real estate listings",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "how to extract business contacts from websites",
+        "category":  "tutorial",
+        "platform":  "any",
+        "data_type":  "business contacts",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "how to bypass scraping blocks",
+        "category":  "tutorial",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "low"
+    },
+    {
+        "keyword":  "how to export scraped data to csv",
+        "category":  "tutorial",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "low"
+    },
+    {
+        "keyword":  "Instant Data Scraper alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "free Instant Data Scraper alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Instant Data Scraper vs Workfern",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "Instant Data Scraper for mac",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "better than Instant Data Scraper",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Instant Data Scraper not working fix",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "is Instant Data Scraper safe",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "low"
+    },
+    {
+        "keyword":  "Data Miner alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "free Data Miner alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Data Miner vs Workfern",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "Data Miner for mac",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "better than Data Miner",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Data Miner not working fix",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "is Data Miner safe",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "low"
+    },
+    {
+        "keyword":  "Web Scraper io alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "free Web Scraper io alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Web Scraper io vs Workfern",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "Web Scraper io for mac",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "better than Web Scraper io",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Web Scraper io not working fix",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "is Web Scraper io safe",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "low"
+    },
+    {
+        "keyword":  "Octoparse alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "free Octoparse alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Octoparse vs Workfern",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "Octoparse for mac",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "better than Octoparse",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Octoparse not working fix",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "is Octoparse safe",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "low"
+    },
+    {
+        "keyword":  "ParseHub alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "free ParseHub alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "ParseHub vs Workfern",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "ParseHub for mac",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "better than ParseHub",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "ParseHub not working fix",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "is ParseHub safe",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "low"
+    },
+    {
+        "keyword":  "Apify alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "free Apify alternative",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Apify vs Workfern",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "Apify for mac",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "better than Apify",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Apify not working fix",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "medium"
+    },
+    {
+        "keyword":  "is Apify safe",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "low"
+    },
+    {
+        "keyword":  "Instant Data Scraper alternative for Google Maps",
+        "category":  "competitor",
+        "platform":  "Google Maps",
+        "data_type":  "business contacts",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Instant Data Scraper alternative for leads",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "leads",
+        "intent":  "high"
+    },
+    {
+        "keyword":  "Instant Data Scraper extension replacement",
+        "category":  "competitor",
+        "platform":  "any",
+        "data_type":  "general",
+        "intent":  "high"
+    }
+]

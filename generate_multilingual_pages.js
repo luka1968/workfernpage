@@ -7,10 +7,11 @@
 
 const fs   = require('fs');
 const path = require('path');
+const UI_STRINGS = require('./translations.js');
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────────
 const LOCALIZED_JSON = path.resolve(__dirname, 'localized_seo_all.json');
-const TEMPLATE_FILE  = path.resolve(__dirname, 'template.html');
+const TEMPLATE_FILE  = path.resolve(__dirname, 'template_scraping.html');
 const OUTPUT_DIR     = path.resolve(__dirname, 'pages');
 const SITE_URL       = 'https://www.workfern.com';
 // ────────────────────────────────────────────────────────────────────────────────
@@ -22,6 +23,13 @@ const LANG_META = {
   de: { htmlLang: 'de', label: 'Deutsch' },
   fr: { htmlLang: 'fr', label: 'Français' },
   ja: { htmlLang: 'ja', label: '日本語' },
+  it: { htmlLang: 'it', label: 'Italiano' },
+  ar: { htmlLang: 'ar', label: 'العربية', dir: 'rtl' },
+  sv: { htmlLang: 'sv', label: 'Svenska' },
+  fi: { htmlLang: 'fi', label: 'Suomi' },
+  ko: { htmlLang: 'ko', label: '한국어' },
+  ru: { htmlLang: 'ru', label: 'Русский' },
+  hi: { htmlLang: 'hi', label: 'हिन्दी' },
 };
 
 // Pain points per language (used to enrich hero section)
@@ -62,6 +70,55 @@ const PAIN_POINTS = {
     'leads':       '高価なデータベースなしで正確な顧客リストを作成するのに苦労していますか？',
     'google maps': 'Googleマップからブロックされずにビジネスデータを抽出したいですか？',
     'default':     'フリーズし、エクスポートを制限し、クレジットカードを要求するスクレイパーにうんざりしていますか？'
+  },
+  it: {
+    'not working': 'Il tuo attuale scraper continua a bloccarsi o fallire?',
+    'alternative': 'Cerchi un\'alternativa migliore, più veloce e gratuita?',
+    'leads':       'Fai fatica a creare liste di contatti senza costosi database?',
+    'google maps': 'Cerchi di estrarre dati da Google Maps senza essere bloccato?',
+    'default':     'Stanco di scraper che si bloccano, limitano le esportazioni e chiedono la carta di credito?'
+  },
+  ar: {
+    'not working': 'هل أداتك الحالية تتعطل أو يتم حظرها باستمرار؟',
+    'alternative': 'هل تبحث عن بديل أفضل وأسرع ومجاني بالكامل؟',
+    'leads':       'هل تواجه صعوبة في بناء قوائم العملاء بدون قواعد بيانات باهظة؟',
+    'google maps': 'هل تحاول استخراج البيانات من خرائط جوجل دون حظر؟',
+    'default':     'هل سئمت من الأدوات التي تتوقف، تقيد التصدير، وتطلب بطاقتك الائتمانية؟'
+  },
+  sv: {
+    'not working': 'Frustrerad över att din nuvarande skrapa ständigt misslyckas eller blockeras?',
+    'alternative': 'Letar du efter ett bättre, snabbare och helt gratis alternativ?',
+    'leads':       'Kämpar du med att bygga kontaktlistor utan dyra databaser?',
+    'google maps': 'Försöker du extrahera data från Google Maps utan att bli blockerad?',
+    'default':     'Trött på skrapor som fryser, begränsar din export och kräver ditt kreditkort?'
+  },
+  fi: {
+    'not working': 'Turhauttaako, kun nykyinen tiedonkeruutyökalusi kaatuu tai estetään?',
+    'alternative': 'Etsitkö parempaa, nopeampaa ja täysin ilmaista vaihtoehtoa?',
+    'leads':       'Onko liidilistojen rakentaminen vaikeaa ilman kalliita tietokantoja?',
+    'google maps': 'Yritätkö kerätä tietoa Google Mapsista ilman estoja?',
+    'default':     'Kyllästynyt työkaluihin, jotka jäätyvät, rajoittavat vientiä ja vaativat luottokorttia?'
+  },
+  ko: {
+    'not working': '현재 사용하는 스크래퍼가 계속 실패하거나 차단되어 답답하신가요?',
+    'alternative': '더 빠르고 완벽하게 무료인 대안을 찾고 계신가요?',
+    'leads':       '비싼 데이터베이스 없이 잠재 고객 목록을 구축하는 데 어려움을 정고 계신가요?',
+    'google maps': '차단되지 않고 구글 맵에서 데이터를 추출하려고 하시나요?',
+    'default':     '멈추고, 내보내기를 제한하며, 신용카드를 요구하는 스크래퍼에 지치셨나요?'
+  },
+  ru: {
+    'not working': 'Ваш текущий парсер постоянно дает сбои, зависает или блокируется?',
+    'alternative': 'Ищете лучшую, более быструю и полностью бесплатную альтернативу?',
+    'leads':       'Сложно собирать базы лидов без дорогих баз данных?',
+    'google maps': 'Пытаетесь извлечь данные из Google Maps без блокировок?',
+    'default':     'Устали от парсеров, которые зависают, ограничивают экспорт и требуют кредитную карту?'
+  },
+  hi: {
+    'not working': 'क्या आपका वर्तमान स्क्रैपर बार-बार विफल होता है या ब्लॉक हो जाता है?',
+    'alternative': 'क्या आप एक बेहतर, तेज़ और पूरी तरह से मुफ़्त विकल्प खोज रहे हैं?',
+    'leads':       'क्या आप महंगे डेटाबेस के बिना लीड सूचियां बनाने के लिए संघर्ष कर रहे हैं?',
+    'google maps': 'क्या आप बिना ब्लॉक हुए Google Maps से डेटा निकालने का प्रयास कर रहे हैं?',
+    'default':     'क्या आप ऐसे स्क्रैपर से थक गए हैं जो हैंग होते हैं, निर्यात सीमित करते हैं और क्रेडिट कार्ड मांगते हैं?'
   }
 };
 
@@ -71,7 +128,14 @@ const SOLUTIONS = {
   es: 'Workfern se ejecuta 100% dentro de tu navegador Chrome — sin servidores, sin registro, sin límites. Instala desde Chrome Web Store y empieza a exportar datos a CSV en 30 segundos.',
   de: 'Workfern läuft zu 100% in Ihrem Chrome-Browser — keine Server, kein Login, keine Limits. Installieren Sie es aus dem Chrome Web Store und exportieren Sie in 30 Sekunden Daten als CSV.',
   fr: 'Workfern fonctionne 100% dans votre navigateur Chrome — sans serveur, sans login, sans limite. Installez depuis le Chrome Web Store et commencez à extraire des données en CSV en 30 secondes.',
-  ja: 'WorkfernはあなたのChromeブラウザ内で100%動作します。サーバー不要、ログイン不要、制限なし。Chrome Web Storeからインストールして30秒でCSVにデータ出力を開始できます。'
+  ja: 'WorkfernはあなたのChromeブラウザ内で100%動作します。サーバー不要、ログイン不要、制限なし。Chrome Web Storeからインストールして30秒でCSVにデータ出力を開始できます。',
+  it: 'Workfern funziona al 100% all\'interno del tuo browser Chrome — niente server, nessun login, nessun limite. Installa dal Chrome Web Store e inizia a esportare dati in CSV in 30 secondi.',
+  ar: 'يعمل Workfern بالكامل داخل متصفح كروم — بدون خوادم، بدون تسجيل دخول، وبدون حدود. قم بتثبيته من سوق كروم الإلكتروني وابدأ في استخراج البيانات إلى CSV في 30 ثانية.',
+  sv: 'Workfern körs 100% inuti din Chrome-webbläsare — inga servrar, ingen inloggning, inga begränsningar. Installera från Chrome Web Store och börja extrahera data till CSV på 30 sekunder.',
+  fi: 'Workfern toimii 100% Chrome-selaimessasi — ei palvelimia, ei kirjautumista, ei rajoituksia. Asenna Chrome Web Storesta ja aloita tietojen vienti CSV-muotoon 30 sekunnissa.',
+  ko: 'Workfern은 Chrome 브라우저 내에서 100% 실행됩니다. 서버, 로그인, 제한이 없습니다. Chrome 웹 스토어에서 설치하고 30초 만에 CSV로 데이터 추출을 시작하세요.',
+  ru: 'Workfern работает на 100% внутри вашего браузера Chrome — без серверов, без регистрации, без ограничений. Установите из Chrome Web Store и начните экспорт данных в CSV за 30 секунд.',
+  hi: 'Workfern 100% आपके क्रोम ब्राउज़र के अंदर चलता है — कोई सर्वर नहीं, कोई लॉगिन नहीं, कोई सीमा नहीं। क्रोम वेब स्टोर से इंस्टॉल करें और 30 सेकंड में CSV में डेटा निकालना शुरू करें।'
 };
 
 // CTA button text per language
@@ -80,7 +144,14 @@ const CTA_TEXT = {
   es: 'Añadir a Chrome — Es Gratis',
   de: 'Zu Chrome hinzufügen — Kostenlos',
   fr: 'Ajouter à Chrome — C\'est Gratuit',
-  ja: 'Chromeに追加 — 無料'
+  ja: 'Chromeに追加 — 無料',
+  it: 'Aggiungi a Chrome — È Gratis',
+  ar: 'أضف إلى كروم — مجانًا',
+  sv: 'Lägg till i Chrome — Det är gratis',
+  fi: 'Lisää Chromeen — Se on ilmainen',
+  ko: 'Chrome에 추가 — 무료입니다',
+  ru: 'Добавить в Chrome — Это бесплатно',
+  hi: 'क्रोम में जोड़ें — यह मुफ़्त है'
 };
 
 function getPainPoint(keyword, lang) {
@@ -97,6 +168,11 @@ function toSlug(text) {
     .replace(/[^\w\s-]/g, '')
     .replace(/[\s_]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function titleCase(str) {
+  if (!str) return '';
+  return str.replace(/\b\w/g, l => l.toUpperCase());
 }
 
 function generateHreflangTags(allLangData, currentSlug, currentLang) {
@@ -166,13 +242,24 @@ for (const lang of Object.keys(LANG_META)) {
     const solution  = SOLUTIONS[lang];
     const ctaText   = CTA_TEXT[lang];
     const hreflangTags = generateHreflangTags(allLangData, safeSlug, lang);
+    const relativeSlugPath = lang === 'en' ? `${safeSlug}.html` : `${lang}/${safeSlug}.html`;
 
     // Build the page from template
-    let pageHtml = template
-      .replace(/lang="en"/g, `lang="${htmlLang}"`)
+    let htmlDir = LANG_META[lang].dir ? ` dir="${LANG_META[lang].dir}"` : '';
+    let pageHtml = template;
+
+    if (lang !== 'en' && UI_STRINGS[lang]) {
+        for (const [enStr, translatedStr] of Object.entries(UI_STRINGS[lang])) {
+            pageHtml = pageHtml.split(enStr).join(translatedStr);
+        }
+    }
+
+    pageHtml = pageHtml
+      .replace(/lang="en"/g, `lang="${htmlLang}"${htmlDir}`)
       .replace(/\{\{META_TITLE\}\}/g,       title || `${h1} | Workfern`)
       .replace(/\{\{META_DESCRIPTION\}\}/g, meta_description || '')
-      .replace(/\{\{SLUG\}\}/g,             `${safeSlug}.html`)
+      .replace(/\{\{SLUG\}\}/g,             relativeSlugPath)
+      .replace(/\{\{keyword\}\}/g,          titleCase(keyword))
       .replace(/\{\{KEYWORD\}\}/g,          keyword)
       .replace(/\{\{KEYWORD_CAPITALIZED\}\}/g, h1 || keyword)
       .replace(/\{\{H1_TITLE\}\}/g,         h1 || keyword)
@@ -182,7 +269,9 @@ for (const lang of Object.keys(LANG_META)) {
       .replace(/\{\{H3_SOLUTION_HEADING\}\}/g, `How Workfern Solves It`)
       .replace(/\{\{H3_SOLUTION_BODY\}\}/g, solution)
       .replace(/\{\{BADGE_TEXT\}\}/g,       '🚀 Free Tool')
-      .replace(/\{\{TWITTER_TEXT\}\}/g,     encodeURIComponent(h1 || keyword));
+      .replace(/\{\{TWITTER_TEXT\}\}/g,     encodeURIComponent(h1 || keyword))
+      .replace(/\{\{platform\}\}/g,         page.platform || 'websites')
+      .replace(/\{\{data_type\}\}/g,        page.data_type || 'data');
 
     // Inject hreflang tags right before </head>
     if (hreflangTags) {
@@ -247,4 +336,11 @@ console.log(`📁 Spanish → /pages/es/`);
 console.log(`📁 German  → /pages/de/`);
 console.log(`📁 French  → /pages/fr/`);
 console.log(`📁 Japanese→ /pages/ja/`);
+console.log(`📁 Italian → /pages/it/`);
+console.log(`📁 Arabic  → /pages/ar/`);
+console.log(`📁 Swedish → /pages/sv/`);
+console.log(`📁 Finnish → /pages/fi/`);
+console.log(`📁 Korean  → /pages/ko/`);
+console.log(`📁 Russian → /pages/ru/`);
+console.log(`📁 Hindi   → /pages/hi/`);
 console.log(`🗺️  sitemap.xml updated with ${allSlugsForSitemap.length} URLs`);
